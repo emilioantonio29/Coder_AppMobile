@@ -3,12 +3,12 @@ import ProductList from "./mock/ProductList";
 import React, { useState } from 'react';
 import Header from "./components/Header";
 
-
+const productos = ProductList
+// const sesion = false
 
 export default function App() {
-  const productos = ProductList;
+  // console.log(productos)
   const agregarProducto = () => {
-    console.log(0)
     const item = {
       producto: {
         id: Math.random().toString(),
@@ -21,7 +21,7 @@ export default function App() {
         imagen: ""
     }}
     setLista([
-      ...ProductList,
+      ...lista,
       item,
     ]);
     settextNombre('');
@@ -32,19 +32,20 @@ export default function App() {
 
   const  handleChangeText = (value) =>{
     settextNombre(value)
-    console.log(textNombre)
+    // console.log(textNombre)
   }
   const  handleChangeText2 = (value) =>{
     settextPrecio(value)
-    console.log(textPrecio)
+    // console.log(textPrecio)
   }
+  // const [session, setSession] = useState(sesion);
+  const [lista, setLista] = useState(productos);
   const [textNombre, settextNombre] = useState('');
   const [textPrecio, settextPrecio] = useState('');
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [lista, setLista] = useState(ProductList);
   const borrarItem = (data) =>{
-      console.log(data)
+      // console.log(data)
       const newList = lista.filter(item => item.producto.id !== data.id);
       setLista(newList);
   }
